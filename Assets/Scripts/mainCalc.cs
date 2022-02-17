@@ -10,8 +10,8 @@ public class mainCalc : MonoBehaviour
     [SerializeField] private Text RESULT;
     [SerializeField] private string old_p;
     [SerializeField] private string new_p;
-    [SerializeField] private float gaz_price = 7.9900f;
-    [SerializeField] private float gaz_price_dost;
+    private float gaz_price = 7.9900f;
+    private float gaz_price_dost = 1.85f;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +28,22 @@ public class mainCalc : MonoBehaviour
     {
         old_p = OLD.text.ToString();
         new_p = NEW.text.ToString();
-        var old = float.Parse(old_p);
-        var neww = float.Parse(new_p);
-        var gaz  = (neww - old) * gaz_price;
-        Debug.Log(" ", gaz, ", ", old, ", ", neww);
+        float old = float.Parse(old_p);
+        float neww = float.Parse(new_p);
+        float gaz  = (neww - old) * gaz_price;
+        float gaz_dost = (neww - old) * gaz_price_dost;
+        RESULT.text = "До сплати за газ: " + gaz + "\n За доставку: " + gaz_dost;
+        Debug.Log(old);
+        Debug.Log(neww);
+        Debug.Log(gaz);
+    }
+
+    public void Elektr()
+    {
+        old_p = OLD.text.ToString();
+        new_p = NEW.text.ToString();
+        float old = float.Parse(old_p);
+        float neww = float.Parse(new_p);
+        float elektr  = (neww - old) * gaz_price;
     }
 }
