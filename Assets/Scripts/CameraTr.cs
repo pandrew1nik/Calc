@@ -16,6 +16,11 @@ public class CameraTr : MonoBehaviour
         cam.transform.position = Vector3.Lerp(cam.transform.localPosition, new Vector3(-10, 0, -10), 1);
     }
 
+    public void ToWater()
+    {
+        cam.transform.position = Vector3.Lerp(cam.transform.localPosition, new Vector3(20, 0, -10), 1);
+    }
+
     public void ToMain()
     {
         cam.transform.position = Vector3.Lerp(cam.transform.localPosition, new Vector3(0, 0, -10), 1);
