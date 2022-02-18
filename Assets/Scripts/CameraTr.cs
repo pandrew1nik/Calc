@@ -6,10 +6,19 @@ public class CameraTr : MonoBehaviour
 {
     public Camera cam;
 
-    public void TransformCam()
+    public void ToGaz()
     {
-        if (this.gameObject.name == "Gaz") cam.gameObject.transform.position = new Vector3(10, 0, 10);
-        if (this.gameObject.name == "Electricity") cam.gameObject.transform.position = new Vector3(-10, 0, 10);
+        cam.transform.position = Vector3.Lerp(cam.transform.localPosition, new Vector3(10, 0, -10), 1);
+    }
+
+    public void ToElectr()
+    {
+        cam.transform.position = Vector3.Lerp(cam.transform.localPosition, new Vector3(-10, 0, -10), 1);
+    }
+
+    public void ToMain()
+    {
+        cam.transform.position = Vector3.Lerp(cam.transform.localPosition, new Vector3(0, 0, -10), 1);
     }
 
 }
