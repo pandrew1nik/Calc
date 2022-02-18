@@ -5,14 +5,15 @@ using UnityEngine.UI;
 
 public class mainCalc : MonoBehaviour
 {
-    [SerializeField] private Text OLD;
-    [SerializeField] private Text NEW;
-    [SerializeField] private Text RESULT;
-    [SerializeField] private string old_p;
-    [SerializeField] private string new_p;
+    [SerializeField] public Text OLD;
+    [SerializeField] public Text NEW;
+    [SerializeField] public Text RESULT;
+    [SerializeField] public string old_p;
+    [SerializeField] public string new_p;
     private float gaz_price = 7.9900f;
     private float gaz_price_dost = 1.85f;
-    private float elektr_price;
+
+    private float electricity_price;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,15 +37,17 @@ public class mainCalc : MonoBehaviour
 
         RESULT.text = "До сплати за газ: " + gaz + "\n За доставку: " + gaz_dost;
     }
+    
 
-    public void Elektr()
+    public void Electricity()
     {
         old_p = OLD.text.ToString();
         new_p = NEW.text.ToString();
         float old = float.Parse(old_p);
         float neww = float.Parse(new_p);
-        float elektr  = (neww - old) * elektr_price;
+        float electricity  = (neww - old) * electricity_price;
 
-        RESULT.text = "До сплати за електроенергію: " + elektr;
+        RESULT.text = "До сплати за електроенергію: " + electricity;
     }
+
 }
