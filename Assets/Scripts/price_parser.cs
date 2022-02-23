@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Web;
 
 
 public class price_parser : MonoBehaviour
